@@ -22,14 +22,15 @@ func NewGame() *Game {
 	return &Game{}
 }
 
-func (g *Game) Update() error {
+func (self *Game) Update() error {
 	return nil
 }
 
-func (g *Game) Draw(screen *ebiten.Image) {
+func (self *Game) Draw(screen *ebiten.Image) {
 	screen.Fill(colornames.White)
 }
 
-func (g *Game) Layout(w, h int) (int, int) {
-	return w, h
+func (self *Game) Layout(w, h int) (int, int) {
+	f := ebiten.DeviceScaleFactor()
+	return w * int(f), h * int(f)
 }
